@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="蓝栈 SCP：秘密实验室中文公告、服务器功能、积分规则、常用指令与联系方式。">
+
+    <meta name="theme-color" content="#07111d">
+
+    <title>中文公告 | 蓝栈 SCP：秘密实验室</title>
+
+    <style>
+        :root {
+            --background: #050b12;
+            --background-secondary: #0a1725;
+            --panel: rgba(13, 28, 44, 0.94);
+            --panel-light: rgba(28, 50, 70, 0.68);
+            --blue: #4fc3f7;
+            --light-blue: #81d4fa;
+            --yellow: #ffd54f;
+            --green: #66bb6a;
+            --light-green: #a5d6a7;
+            --red: #ff5252;
+            --light-red: #ff8a80;
+            --orange: #ff9800;
+            --purple: #ba68c8;
+            --text: #e8f1f8;
+            --muted: #b0bec5;
+            --border: rgba(79, 195, 247, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--text);
+            line-height: 1.75;
+
+            font-family:
+                "Microsoft YaHei",
+                "PingFang SC",
+                "Noto Sans SC",
+                Arial,
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(30, 113, 165, 0.38),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 90% 30%,
+                    rgba(102, 187, 106, 0.08),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    145deg,
+                    var(--background),
+                    var(--background-secondary) 55%,
+                    #050a10
+                );
+
+            background-attachment: fixed;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(1050px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 28px 0 70px;
+        }
+
+        .top-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .top-actions a {
+            display: inline-flex;
+            align-items: center;
+            padding: 9px 15px;
+            color: var(--text);
+            background: rgba(19, 39, 58, 0.88);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            transition: 0.2s ease;
+        }
+
+        .top-actions a:hover {
+            color: #07111a;
+            text-decoration: none;
+            background: var(--blue);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 58px 30px;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(79, 195, 247, 0.18),
+                    rgba(12, 28, 44, 0.96)
+                );
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.42);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            top: -150px;
+            right: -80px;
+            background: rgba(79, 195, 247, 0.16);
+            border-radius: 50%;
+            filter: blur(6px);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            bottom: -150px;
+            left: -80px;
+            background: rgba(102, 187, 106, 0.11);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .server-label {
+            display: inline-block;
+            padding: 6px 13px;
+            margin-bottom: 16px;
+            color: var(--yellow);
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            background: rgba(255, 213, 79, 0.1);
+            border: 1px solid rgba(255, 213, 79, 0.3);
+            border-radius: 999px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            color: var(--blue);
+            font-size: clamp(30px, 6vw, 48px);
+            line-height: 1.25;
+            text-shadow: 0 0 28px rgba(79, 195, 247, 0.25);
+        }
+
+        .hero .english-title {
+            margin: 12px 0 0;
+            color: var(--muted);
+            font-size: clamp(16px, 3vw, 22px);
+        }
+
+        .hero-description {
+            max-width: 760px;
+            margin: 24px auto 0;
+            color: #d7e7f0;
+            font-size: 17px;
+        }
+
+        .quick-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .quick-navigation a {
+            display: inline-block;
+            padding: 9px 15px;
+            color: #06111a;
+            font-weight: bold;
+            background: var(--blue);
+            border-radius: 999px;
+            transition: 0.2s ease;
+        }
+
+        .quick-navigation a:nth-child(even) {
+            background: var(--yellow);
+        }
+
+        .quick-navigation a:hover {
+            text-decoration: none;
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            margin-top: 22px;
+            padding: 28px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.23);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 22px;
+            color: var(--yellow);
+            font-size: 26px;
+            line-height: 1.3;
+        }
+
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 5px;
+            height: 29px;
+            flex-shrink: 0;
+            background: var(--blue);
+            border-radius: 5px;
+        }
+
+        .section-title small {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(245px, 1fr));
+            gap: 14px;
+        }
+
+        .card {
+            padding: 18px;
+            background: var(--panel-light);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-left: 4px solid var(--blue);
+            border-radius: 11px;
+            transition: 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            background: rgba(32, 58, 80, 0.82);
+        }
+
+        .card.green {
+            border-left-color: var(--green);
+        }
+
+        .card.yellow {
+            border-left-color: var(--yellow);
+        }
+
+        .card.red {
+            border-left-color: var(--red);
+        }
+
+        .card.orange {
+            border-left-color: var(--orange);
+        }
+
+        .card.purple {
+            border-left-color: var(--purple);
+        }
+
+        .card h3 {
+            margin: 0 0 6px;
+            color: #f3f8fb;
+            font-size: 18px;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .score {
+            color: var(--yellow);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .score.negative {
+            color: var(--light-red);
+        }
+
+        .feature-list,
+        .rule-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .feature-list li,
+        .rule-list li {
+            position: relative;
+            margin: 10px 0;
+            padding: 14px 16px 14px 46px;
+            background: var(--panel-light);
+            border-radius: 10px;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 16px;
+            top: 13px;
+            color: var(--light-green);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .rule-list {
+            counter-reset: server-rule;
+        }
+
+        .rule-list li {
+            counter-increment: server-rule;
+        }
+
+        .rule-list li::before {
+            content: counter(server-rule);
+            position: absolute;
+            left: 14px;
+            top: 13px;
+            width: 23px;
+            height: 23px;
+            color: white;
+            line-height: 23px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            background: var(--red);
+            border-radius: 50%;
+        }
+
+        .feature-list strong {
+            color: var(--light-green);
+        }
+
+        .feature-list small {
+            display: block;
+            margin-top: 3px;
+            color: var(--muted);
+        }
+
+        .notice {
+            margin-top: 18px;
+            padding: 16px 18px;
+            color: #fff1bd;
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 213, 79, 0.3);
+            border-radius: 10px;
+        }
+
+        .command {
+            display: inline-block;
+            padding: 3px 9px;
+            color: #07111a;
+            font-family: Consolas, monospace;
+            font-weight: bold;
+            background: var(--blue);
+            border-radius: 6px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .contact-card {
+            display: block;
+            padding: 18px;
+            color: var(--text);
+            background: var(--panel-light);
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            transition: 0.2s ease;
+        }
+
+        .contact-card:hover {
+            color: white;
+            text-decoration: none;
+            border-color: var(--blue);
+            transform: translateY(-3px);
+        }
+
+        .contact-card strong {
+            display: block;
+            color: var(--blue);
+            font-size: 17px;
+        }
+
+        .contact-card span {
+            display: block;
+            margin-top: 5px;
+            color: var(--muted);
+            word-break: break-word;
+        }
+
+        .recruitment {
+            margin-top: 18px;
+            padding: 20px;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(79, 195, 247, 0.13),
+                    rgba(255, 213, 79, 0.09)
+                );
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .recruitment strong {
+            display: block;
+            color: var(--yellow);
+            font-size: 19px;
+        }
+
+        .back-to-top {
+            display: block;
+            width: fit-content;
+            margin: 28px auto 0;
+            padding: 10px 18px;
+            color: #07111a;
+            font-weight: bold;
+            background: var(--blue);
+            border-radius: 999px;
+        }
+
+        .back-to-top:hover {
+            text-decoration: none;
+            filter: brightness(1.1);
+        }
+
+        footer {
+            padding: 28px 0 5px;
+            color: #78909c;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                width: min(100% - 18px, 1050px);
+                padding-top: 12px;
+            }
+
+            .hero {
+                padding: 40px 18px;
+                border-radius: 15px;
+            }
+
+            .section {
+                padding: 21px 16px;
+                border-radius: 14px;
+            }
+
+            .section-title {
+                align-items: flex-start;
+                font-size: 23px;
+            }
+
+            .section-title small {
+                display: block;
+                margin-top: 4px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+<main class="container">
+
+    <div class="top-actions">
+        <a href="index.html">← 返回语言选择</a>
+        <a href="en.html">English Announcement</a>
+    </div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="server-label">SCP: SECRET LABORATORY</span>
+
+            <h1>蓝栈 SCP：秘密实验室</h1>
+
+            <p class="english-title">
+                BlueStack SCP: Secret Laboratory
+            </p>
+
+            <p class="hero-description">
+                欢迎来到蓝栈服务器！我们在保留 SCP:SL 核心玩法的基础上，
+                加入状态栏、积分系统、MVP、全局消息和中途加入等功能，
+                致力于为所有玩家提供稳定、友好且有趣的游戏环境。
+            </p>
+
+            <nav class="quick-navigation">
+                <a href="#rules">服务器规则</a>
+                <a href="#features">服务器功能</a>
+                <a href="#scores">积分规则</a>
+                <a href="#victory">胜利奖励</a>
+                <a href="#commands">常用指令</a>
+                <a href="#contact">联系方式</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section" id="rules">
+        <h2 class="section-title">
+            服务器规则
+            <small>SERVER RULES</small>
+        </h2>
+
+        <ol class="rule-list">
+            <li>
+                禁止使用外挂、脚本或其他未经允许的作弊工具。
+            </li>
+
+            <li>
+                禁止恶意利用游戏漏洞或 Bug 获取不公平优势。
+            </li>
+
+            <li>
+                禁止恶意友军伤害、恶意击杀队友以及故意破坏阵营行动。
+            </li>
+
+            <li>
+                禁止辱骂、骚扰、歧视、威胁或针对其他玩家。
+            </li>
+
+            <li>
+                禁止刷屏以及滥用全局消息功能发布违规内容。
+            </li>
+
+            <li>
+                请配合管理员进行合理的调查与处理。
+            </li>
+        </ol>
+
+        <div class="notice">
+            管理员会根据违规情节采取警告、禁言、踢出或封禁等措施。
+            请共同维护良好的服务器环境。
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <h2 class="section-title">
+            服务器功能
+            <small>SERVER FEATURES</small>
+        </h2>
+
+        <ul class="feature-list">
+            <li>
+                <strong>无限体力</strong>
+                <small>玩家可以持续奔跑，无需等待体力恢复。</small>
+            </li>
+
+            <li>
+                <strong>无限备用弹药</strong>
+                <small>枪械拥有无限备用弹药，弹匣仍需正常更换。</small>
+            </li>
+
+            <li>
+                <strong>支持中途加入与自动重生</strong>
+                <small>
+                    回合进行中加入服务器时，系统会根据当前情况匹配合适角色并安排重生。
+                </small>
+            </li>
+
+            <li>
+                <strong>D级人员出生物品</strong>
+                <small>D级人员出生时额外获得一个硬币和一个止痛药。</small>
+            </li>
+
+            <li>
+                <strong>实时状态栏</strong>
+                <small>
+                    显示玩家名称、身份、延迟、积分、今日在线时间和存活人数。
+                </small>
+            </li>
+
+            <li>
+                <strong>积分、助攻与本局 MVP</strong>
+                <small>
+                    自动统计击杀、助攻、胜利奖励和本回合优秀玩家。
+                </small>
+            </li>
+
+            <li>
+                <strong>全局玩家消息</strong>
+                <small>
+                    玩家可以通过客户端控制台向全服发送排队消息。
+                </small>
+            </li>
+        </ul>
+    </section>
+
+    <section class="section" id="scores">
+        <h2 class="section-title">
+            积分获取与扣除
+            <small>SCORE SYSTEM</small>
+        </h2>
+
+        <div class="grid">
+            <article class="card green">
+                <h3>
+                    新玩家初始积分
+                    <span class="score">10 分</span>
+                </h3>
+                <p>首次加入积分系统时自动初始化。</p>
+            </article>
+
+            <article class="card">
+                <h3>
+                    普通敌对击杀
+                    <span class="score">+10</span>
+                </h3>
+                <p>有效击杀其他敌对人类阵营成员。</p>
+            </article>
+
+            <article class="card red">
+                <h3>
+                    击杀 SCP
+                    <span class="score">+15</span>
+                </h3>
+                <p>完成对 SCP 角色的有效击杀。</p>
+            </article>
+
+            <article class="card purple">
+                <h3>
+                    SCP 击杀人类
+                    <span class="score">+5</span>
+                </h3>
+                <p>SCP 有效击杀非 SCP 玩家。</p>
+            </article>
+
+            <article class="card orange">
+                <h3>
+                    D级有效击杀
+                    <span class="score">额外 +1</span>
+                </h3>
+                <p>D级人员完成有效敌对击杀时获得额外奖励。</p>
+            </article>
+
+            <article class="card">
+                <h3>
+                    有效助攻
+                    <span class="score">+3</span>
+                </h3>
+                <p>
+                    在目标死亡前 60 秒内造成过伤害，且不是最终击杀者。
+                </p>
+            </article>
+
+            <article class="card red">
+                <h3>
+                    普通死亡
+                    <span class="score negative">-5</span>
+                </h3>
+                <p>被敌对玩家正常击杀。</p>
+            </article>
+
+            <article class="card red">
+                <h3>
+                    自杀或环境死亡
+                    <span class="score negative">-5</span>
+                </h3>
+                <p>主动自杀或因环境伤害死亡。</p>
+            </article>
+
+            <article class="card yellow">
+                <h3>
+                    被友军击杀
+                    <span class="score">不扣分</span>
+                </h3>
+                <p>被队友击杀的受害者不会失去积分。</p>
+            </article>
+
+            <article class="card yellow">
+                <h3>
+                    友军击杀
+                    <span class="score">不加分</span>
+                </h3>
+                <p>不获得积分，也不会计入有效击杀数量。</p>
+            </article>
+        </div>
+
+        <div class="notice">
+            积分最低为 0，不会出现负数。同一名玩家对同一目标造成多次伤害，
+            最终只计算一次助攻。
+        </div>
+    </section>
+
+    <section class="section" id="victory">
+        <h2 class="section-title">
+            胜利奖励
+            <small>VICTORY REWARDS</small>
+        </h2>
+
+        <div class="grid">
+            <article class="card">
+                <h3>
+                    基金会阵营胜利
+                    <span class="score">+20</span>
+                </h3>
+                <p>仅奖励胜利时仍然存活的基金会阵营成员。</p>
+            </article>
+
+            <article class="card green">
+                <h3>
+                    混沌阵营胜利
+                    <span class="score">+20</span>
+                </h3>
+                <p>仅奖励胜利时仍然存活的混沌阵营成员。</p>
+            </article>
+
+            <article class="card red">
+                <h3>
+                    SCP 阵营胜利
+                    <span class="score">+30</span>
+                </h3>
+                <p>仅奖励胜利时仍然存活的 SCP。</p>
+            </article>
+
+            <article class="card orange">
+                <h3>
+                    人类核爆胜利
+                    <span class="score">额外 +5</span>
+                </h3>
+                <p>符合条件的人类胜利阵营获得核爆额外奖励。</p>
+            </article>
+        </div>
+
+        <div class="notice">
+            只有胜利阵营中仍然存活的玩家可以获得胜利积分。
+            多个主要敌对阵营同时存活或无法判断胜方时，不发放胜利积分。
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">
+            友军关系
+            <small>FRIENDLY FACTIONS</small>
+        </h2>
+
+        <div class="grid">
+            <article class="card">
+                <h3>基金会阵营</h3>
+                <p>基金会武装、设施警卫与科学家互为友军。</p>
+            </article>
+
+            <article class="card green">
+                <h3>混沌阵营</h3>
+                <p>混沌分裂者与D级人员互为友军。</p>
+            </article>
+
+            <article class="card red">
+                <h3>SCP 阵营</h3>
+                <p>所有 SCP 角色之间互为友军。</p>
+            </article>
+        </div>
+
+        <div class="notice">
+            友军伤害不会被记录为有效助攻，友军击杀也不会获得积分。
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">
+            本局 MVP
+            <small>ROUND MVP</small>
+        </h2>
+
+        <div class="grid">
+            <article class="card yellow">
+                <h3>表现积分 MVP</h3>
+                <p>
+                    根据本回合通过有效击杀和助攻获得的积分计算。
+                    胜利积分与管理员调整不参与计算。
+                </p>
+            </article>
+
+            <article class="card red">
+                <h3>最多击杀 MVP</h3>
+                <p>
+                    根据本回合有效击杀数量计算，成绩相同的玩家可以并列获奖。
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" id="commands">
+        <h2 class="section-title">
+            常用指令
+            <small>PLAYER COMMANDS</small>
+        </h2>
+
+        <div class="grid">
+            <article class="card">
+                <h3><span class="command">.bc 内容</span></h3>
+                <p>
+                    向全服发送一条消息。每条展示 5 秒，每名玩家独立冷却 10 秒。
+                    多条消息会按照提交顺序排队展示。
+                </p>
+            </article>
+
+            <article class="card red">
+                <h3><span class="command">.zs</span></h3>
+                <p>
+                    立即结束当前角色。成功执行后会按普通死亡规则扣除积分。
+                </p>
+            </article>
+
+            <article class="card green">
+                <h3><span class="command">.sc</span></h3>
+                <p>
+                    开启或关闭游戏画面底部的实时状态栏。
+                </p>
+            </article>
+        </div>
+
+        <div class="notice">
+            按下 <strong>~</strong> 打开游戏客户端控制台后输入指令。
+            指令前必须带英文句点，例如 <strong>.sc</strong>，不是 /sc。
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2 class="section-title">
+            联系方式
+            <small>CONTACT</small>
+        </h2>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <strong>QQ群</strong>
+                <span>785507432</span>
+            </div>
+
+            <a
+                class="contact-card"
+                href="https://discord.gg/d2HPvuf8E"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <strong>Discord</strong>
+                <span>discord.gg/d2HPvuf8E</span>
+            </a>
+
+            <a
+                class="contact-card"
+                href="mailto:thecitydreams@foxmail.com">
+
+                <strong>Email</strong>
+                <span>thecitydreams@foxmail.com</span>
+            </a>
+        </div>
+
+        <div class="recruitment">
+            <strong>服务器正在招聘管理员</strong>
+            如果你愿意维护服务器秩序并帮助其他玩家，
+            欢迎通过以上渠道联系服主。
+        </div>
+    </section>
+
+    <a class="back-to-top" href="#top">返回顶部 ↑</a>
+
+    <footer>
+        蓝栈 SCP：秘密实验室<br>
+        BlueStack SCP: Secret Laboratory
+    </footer>
+
+</main>
+</body>
+</html>
