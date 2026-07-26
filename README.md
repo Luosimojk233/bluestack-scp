@@ -10,11 +10,9 @@
 
 ## 🌐 完整服务器公告
 
-### [点击查看中文公告](https://luosimojk233.github.io/bluestack-scp/zh.html)
-
-### [View English Announcement](https://luosimojk233.github.io/bluestack-scp/en.html)
-
-### [进入公告首页](https://luosimojk233.github.io/bluestack-scp/)
+- [点击查看中文公告](./zh.html)
+- [View English Announcement](./en.html)
+- [进入公告首页](https://luosimojk233.github.io/bluestack-scp/)
 
 ---
 
