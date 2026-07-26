@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="BlueStack SCP: Secret Laboratory server information, features, score rules, commands, and contact information.">
+
+    <meta name="theme-color" content="#07111d">
+
+    <title>English Announcement | BlueStack SCP:SL</title>
+
+    <style>
+        :root {
+            --background: #050b12;
+            --background-secondary: #0a1725;
+            --panel: rgba(13, 28, 44, 0.94);
+            --panel-light: rgba(28, 50, 70, 0.68);
+            --blue: #4fc3f7;
+            --yellow: #ffd54f;
+            --green: #66bb6a;
+            --light-green: #a5d6a7;
+            --red: #ff5252;
+            --light-red: #ff8a80;
+            --orange: #ff9800;
+            --purple: #ba68c8;
+            --text: #e8f1f8;
+            --muted: #b0bec5;
+            --border: rgba(79, 195, 247, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--text);
+            line-height: 1.75;
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(30, 113, 165, 0.38),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 90% 30%,
+                    rgba(102, 187, 106, 0.08),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    145deg,
+                    var(--background),
+                    var(--background-secondary) 55%,
+                    #050a10
+                );
+
+            background-attachment: fixed;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(1050px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 28px 0 70px;
+        }
+
+        .top-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .top-actions a {
+            padding: 9px 15px;
+            color: var(--text);
+            background: rgba(19, 39, 58, 0.88);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            transition: 0.2s ease;
+        }
+
+        .top-actions a:hover {
+            color: #07111a;
+            text-decoration: none;
+            background: var(--blue);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 58px 30px;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(79, 195, 247, 0.18),
+                    rgba(12, 28, 44, 0.96)
+                );
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.42);
+        }
+
+        .hero h1 {
+            margin: 0;
+            color: var(--blue);
+            font-size: clamp(30px, 6vw, 48px);
+            line-height: 1.25;
+        }
+
+        .chinese-title {
+            margin: 12px 0 0;
+            color: var(--muted);
+            font-size: clamp(16px, 3vw, 22px);
+        }
+
+        .server-label {
+            display: inline-block;
+            padding: 6px 13px;
+            margin-bottom: 16px;
+            color: var(--yellow);
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            background: rgba(255, 213, 79, 0.1);
+            border: 1px solid rgba(255, 213, 79, 0.3);
+            border-radius: 999px;
+        }
+
+        .hero-description {
+            max-width: 760px;
+            margin: 24px auto 0;
+            color: #d7e7f0;
+            font-size: 17px;
+        }
+
+        .quick-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .quick-navigation a {
+            padding: 9px 15px;
+            color: #06111a;
+            font-weight: bold;
+            background: var(--blue);
+            border-radius: 999px;
+            transition: 0.2s ease;
+        }
+
+        .quick-navigation a:nth-child(even) {
+            background: var(--yellow);
+        }
+
+        .quick-navigation a:hover {
+            text-decoration: none;
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            margin-top: 22px;
+            padding: 28px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.23);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 22px;
+            color: var(--yellow);
+            font-size: 26px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 5px;
+            height: 29px;
+            flex-shrink: 0;
+            background: var(--blue);
+            border-radius: 5px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(245px, 1fr));
+            gap: 14px;
+        }
+
+        .card {
+            padding: 18px;
+            background: var(--panel-light);
+            border-left: 4px solid var(--blue);
+            border-radius: 11px;
+            transition: 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            background: rgba(32, 58, 80, 0.82);
+        }
+
+        .card.green {
+            border-left-color: var(--green);
+        }
+
+        .card.yellow {
+            border-left-color: var(--yellow);
+        }
+
+        .card.red {
+            border-left-color: var(--red);
+        }
+
+        .card.orange {
+            border-left-color: var(--orange);
+        }
+
+        .card.purple {
+            border-left-color: var(--purple);
+        }
+
+        .card h3 {
+            margin: 0 0 6px;
+            font-size: 18px;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .score {
+            color: var(--yellow);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .score.negative {
+            color: var(--light-red);
+        }
+
+        .feature-list,
+        .rule-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .feature-list li,
+        .rule-list li {
+            position: relative;
+            margin: 10px 0;
+            padding: 14px 16px 14px 46px;
+            background: var(--panel-light);
+            border-radius: 10px;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 16px;
+            top: 13px;
+            color: var(--light-green);
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .rule-list {
+            counter-reset: server-rule;
+        }
+
+        .rule-list li {
+            counter-increment: server-rule;
+        }
+
+        .rule-list li::before {
+            content: counter(server-rule);
+            position: absolute;
+            left: 14px;
+            top: 13px;
+            width: 23px;
+            height: 23px;
+            color: white;
+            line-height: 23px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            background: var(--red);
+            border-radius: 50%;
+        }
+
+        .feature-list strong {
+            color: var(--light-green);
+        }
+
+        .feature-list small {
+            display: block;
+            margin-top: 3px;
+            color: var(--muted);
+        }
+
+        .notice {
+            margin-top: 18px;
+            padding: 16px 18px;
+            color: #fff1bd;
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 213, 79, 0.3);
+            border-radius: 10px;
+        }
+
+        .command {
+            display: inline-block;
+            padding: 3px 9px;
+            color: #07111a;
+            font-family: Consolas, monospace;
+            background: var(--blue);
+            border-radius: 6px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .contact-card {
+            display: block;
+            padding: 18px;
+            color: var(--text);
+            background: var(--panel-light);
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            transition: 0.2s ease;
+        }
+
+        .contact-card:hover {
+            color: white;
+            text-decoration: none;
+            border-color: var(--blue);
+            transform: translateY(-3px);
+        }
+
+        .contact-card strong {
+            display: block;
+            color: var(--blue);
+            font-size: 17px;
+        }
+
+        .contact-card span {
+            display: block;
+            margin-top: 5px;
+            color: var(--muted);
+            word-break: break-word;
+        }
+
+        .back-to-top {
+            display: block;
+            width: fit-content;
+            margin: 28px auto 0;
+            padding: 10px 18px;
+            color: #07111a;
+            font-weight: bold;
+            background: var(--blue);
+            border-radius: 999px;
+        }
+
+        footer {
+            padding: 28px 0 5px;
+            color: #78909c;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                width: min(100% - 18px, 1050px);
+                padding-top: 12px;
+            }
+
+            .hero {
+                padding: 40px 18px;
+                border-radius: 15px;
+            }
+
+            .section {
+                padding: 21px 16px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+<main class="container">
+
+    <div class="top-actions">
+        <a href="index.html">← Back to language selection</a>
+        <a href="zh.html">中文公告</a>
+    </div>
+
+    <header class="hero">
+        <span class="server-label">SCP: SECRET LABORATORY</span>
+
+        <h1>BlueStack SCP: Secret Laboratory</h1>
+
+        <p class="chinese-title">
+            蓝栈 SCP：秘密实验室
+        </p>
+
+        <p class="hero-description">
+            Welcome to BlueStack. Our server preserves the core SCP:SL
+            experience while adding a real-time status bar, a score system,
+            round MVPs, global player messages, and mid-round joining.
+        </p>
+
+        <nav class="quick-navigation">
+            <a href="#rules">Rules</a>
+            <a href="#features">Features</a>
+            <a href="#scores">Score System</a>
+            <a href="#victory">Victory Rewards</a>
+            <a href="#commands">Commands</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="section" id="rules">
+        <h2 class="section-title">Server Rules</h2>
+
+        <ol class="rule-list">
+            <li>
+                Cheats, scripts, and other unauthorized tools are prohibited.
+            </li>
+
+            <li>
+                Malicious exploitation of bugs or unintended mechanics is prohibited.
+            </li>
+
+            <li>
+                Malicious friendly fire, team-killing, and deliberate sabotage are prohibited.
+            </li>
+
+            <li>
+                Harassment, discrimination, threats, and targeted abuse are prohibited.
+            </li>
+
+            <li>
+                Do not spam or misuse the global message system.
+            </li>
+
+            <li>
+                Please cooperate with reasonable administrator investigations and actions.
+            </li>
+        </ol>
+
+        <div class="notice">
+            Administrators may issue warnings, mutes, kicks, or bans depending
+            on the severity of a violation.
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <h2 class="section-title">Server Features</h2>
+
+        <ul class="feature-list">
+            <li>
+                <strong>Infinite stamina</strong>
+                <small>Players can continue sprinting without waiting for stamina recovery.</small>
+            </li>
+
+            <li>
+                <strong>Infinite reserve ammunition</strong>
+                <small>Weapons have unlimited reserve ammunition, but magazines must still be reloaded.</small>
+            </li>
+
+            <li>
+                <strong>Mid-round joining and automatic respawn</strong>
+                <small>
+                    Players joining during a round are automatically assigned a suitable role and respawned.
+                </small>
+            </li>
+
+            <li>
+                <strong>Class-D starting items</strong>
+                <small>Class-D personnel receive one coin and one bottle of painkillers when they spawn.</small>
+            </li>
+
+            <li>
+                <strong>Real-time status bar</strong>
+                <small>
+                    Displays your name, role, latency, score, daily playtime,
+                    and the number of living players.
+                </small>
+            </li>
+
+            <li>
+                <strong>Score, assist, and round MVP systems</strong>
+                <small>Kills, assists, victory rewards, and round performance are tracked automatically.</small>
+            </li>
+
+            <li>
+                <strong>Global player messages</strong>
+                <small>Players can submit queued messages for the entire server.</small>
+            </li>
+        </ul>
+    </section>
+
+    <section class="section" id="scores">
+        <h2 class="section-title">Earning and Losing Points</h2>
+
+        <div class="grid">
+            <article class="card green">
+                <h3>New player score <span class="score">10 points</span></h3>
+                <p>Automatically initialized when a player first uses the score system.</p>
+            </article>
+
+            <article class="card">
+                <h3>Regular enemy kill <span class="score">+10</span></h3>
+                <p>Defeat a regular member of an enemy faction.</p>
+            </article>
+
+            <article class="card red">
+                <h3>Defeat an SCP <span class="score">+15</span></h3>
+                <p>Complete a valid kill against an SCP role.</p>
+            </article>
+
+            <article class="card purple">
+                <h3>SCP defeats a human <span class="score">+5</span></h3>
+                <p>An SCP completes a valid kill against a non-SCP player.</p>
+            </article>
+
+            <article class="card orange">
+                <h3>Valid Class-D kill <span class="score">Additional +1</span></h3>
+                <p>Class-D personnel receive an additional valid-kill bonus.</p>
+            </article>
+
+            <article class="card">
+                <h3>Valid assist <span class="score">+3</span></h3>
+                <p>Damage the target within 60 seconds before death without being the final killer.</p>
+            </article>
+
+            <article class="card red">
+                <h3>Regular death <span class="score negative">-5</span></h3>
+                <p>Death caused by a valid enemy attacker.</p>
+            </article>
+
+            <article class="card red">
+                <h3>Suicide or environmental death <span class="score negative">-5</span></h3>
+                <p>Death caused by suicide or the environment.</p>
+            </article>
+
+            <article class="card yellow">
+                <h3>Killed by a teammate <span class="score">No deduction</span></h3>
+                <p>The victim of a team-kill does not lose points.</p>
+            </article>
+
+            <article class="card yellow">
+                <h3>Team-killing <span class="score">No reward</span></h3>
+                <p>Grants no points and does not count as a valid kill.</p>
+            </article>
+        </div>
+
+        <div class="notice">
+            The minimum score is 0. Scores cannot become negative.
+            Multiple hits by the same player against the same target only count as one assist.
+        </div>
+    </section>
+
+    <section class="section" id="victory">
+        <h2 class="section-title">Victory Rewards</h2>
+
+        <div class="grid">
+            <article class="card">
+                <h3>Foundation victory <span class="score">+20</span></h3>
+                <p>Only surviving members of the Foundation faction are rewarded.</p>
+            </article>
+
+            <article class="card green">
+                <h3>Chaos victory <span class="score">+20</span></h3>
+                <p>Only surviving members of the Chaos faction are rewarded.</p>
+            </article>
+
+            <article class="card red">
+                <h3>SCP victory <span class="score">+30</span></h3>
+                <p>Only surviving SCP players are rewarded.</p>
+            </article>
+
+            <article class="card orange">
+                <h3>Human nuclear victory <span class="score">Additional +5</span></h3>
+                <p>An additional nuclear victory reward for eligible human winners.</p>
+            </article>
+        </div>
+
+        <div class="notice">
+            Only living members of the winning faction receive victory points.
+            No reward issued if the winning faction cannot be determined.
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Friendly Factions</h2>
+
+        <div class="grid">
+            <article class="card">
+                <h3>Foundation faction</h3>
+                <p>Foundation forces, Facility Guards, and Scientists are friendly.</p>
+            </article>
+
+            <article class="card green">
+                <h3>Chaos faction</h3>
+                <p>Chaos Insurgency and Class-D personnel are friendly.</p>
+            </article>
+
+            <article class="card red">
+                <h3>SCP faction</h3>
+                <p>All SCP roles are friendly with one another.</p>
+            </article>
+        </div>
+
+        <div class="notice">
+            Friendly fire does not count toward assists, and team-killing grants no points.
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Round MVPs</h2>
+
+        <div class="grid">
+            <article class="card yellow">
+                <h3>Performance Score MVP</h3>
+                <p>
+                    Calculated from valid kill and assist points.
+                    Victory rewards and administrator adjustments are excluded.
+                </p>
+            </article>
+
+            <article class="card red">
+                <h3>Kill MVP</h3>
+                <p>
+                    Calculated from valid kills during the round.
+                    Multiple players may share the award if tied.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" id="commands">
+        <h2 class="section-title">Player Commands</h2>
+
+        <div class="grid">
+            <article class="card">
+                <h3><span class="command">.bc message</span></h3>
+                <p>
+                    Send a global message. Each message is displayed for five seconds.
+                    Each player has an individual ten-second cooldown.
+                </p>
+            </article>
+
+            <article class="card red">
+                <h3><span class="command">.zs</span></h3>
+                <p>
+                    Kill your current character. The normal death point deduction applies.
+                </p>
+            </article>
+
+            <article class="card green">
+                <h3><span class="command">.sc</span></h3>
+                <p>Enable or disable the real-time status bar.</p>
+            </article>
+        </div>
+
+        <div class="notice">
+            Press <strong>~</strong> to open the in-game client console.
+            Commands must begin with a period, such as <strong>.sc</strong>, not /sc.
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2 class="section-title">Contact Information</h2>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <strong>QQ Group</strong>
+                <span>785507432</span>
+            </div>
+
+            <a
+                class="contact-card"
+                href="https://discord.gg/d2HPvuf8E"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <strong>Discord</strong>
+                <span>discord.gg/d2HPvuf8E</span>
+            </a>
+
+            <a
+                class="contact-card"
+                href="mailto:thecitydreams@foxmail.com">
+
+                <strong>Email</strong>
+                <span>thecitydreams@foxmail.com</span>
+            </a>
+        </div>
+    </section>
+
+    <a class="back-top" href="#top">Back to top ↑</a>
+
+    <footer>
+        BlueStack SCP: Secret Laboratory<br>
+        Server Information and Score Rules
+    </footer>
+
+</main>
+</body>
+</html>
